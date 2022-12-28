@@ -1,0 +1,21 @@
+{
+  "name": "advanced-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
