@@ -1,11 +1,25 @@
 {
   "compilerOptions": {
-    "outDir": "dist",                                   /* Specify an output folder for all emitted files. */
-    "rootDir": "src",                                   /* Specify the root folder within your source files. */
-    "target": "es2021",                                 /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "sourceMap": true,                                  /* Create source map files for emitted JavaScript files. */
-    "skipLibCheck": true,                               /* Skip type checking all .d.ts files. */
-    "forceConsistentCasingInFileNames": true,           /* Ensure that casing is correct in imports. */
+    "incremental": true,
+    "outDir": "dist",
+    "rootDirs": ["src", "tests"],
+    "target": "es2021",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@/tests/*": ["../tests/*"]
+    },
+    "strict": true,
+    // "noImplicitOverride": true,
+    // "removeComments": true,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }
