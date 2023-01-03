@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
   moduleNameMapper: {
     '@/test/(.+)': '<rootDir>/tests/$1',
     '@/(.+)': '<rootDir>/src/$1'
@@ -11,5 +11,5 @@ module.exports = {
   ],
   transform: {
     '\\.ts$': 'ts-jest'
-  },
-};
+  }
+}
