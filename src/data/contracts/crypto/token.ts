@@ -1,5 +1,5 @@
 export interface TokenGenerator {
-  generateToken: (params: TokenGenerator.Params) => Promise<void>
+  generateToken: (params: TokenGenerator.Params) => Promise<TokenGenerator.Result>
 }
 
 export namespace TokenGenerator {
@@ -8,8 +8,5 @@ export namespace TokenGenerator {
     expirationInMs: number
   }
 
-  export type Result = undefined | {
-    id: string
-    name?: string
-  }
+  export type Result = string
 }
