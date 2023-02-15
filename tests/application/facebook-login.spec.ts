@@ -74,14 +74,14 @@ describe('FacebookLoginController', () => {
     })
   })
 
-  it('should return 500 if authentication throws', async () => {
+  it('should return 500 if authentication throws a non error object', async () => {
     const error = new Error('infra_error')
-    facebookAuth.perform.mockRejectedValueOnce(error)
+    facebookAuth.perform.mockRejectedValueOnce('infra_error')
     const httpResponse = await sut.handle({ token: 'any_token' })
 
     expect(httpResponse).toEqual({
       statusCode: 500,
-      data: new ServerError(error)
+      data: new ServerError()
     })
   })
 })
