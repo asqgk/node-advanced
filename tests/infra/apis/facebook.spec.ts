@@ -30,8 +30,8 @@ describe('FacebookApi', () => {
     expect(httpClient.get).toHaveBeenCalledWith({
       url: 'https://graph.facebook.com/oauth/access_token',
       params: {
-        cliend_id: clientId,
-        cliend_secret: clientSecret,
+        client_id: clientId,
+        client_secret: clientSecret,
         grant_type: 'client_credentials'
       }
     })
