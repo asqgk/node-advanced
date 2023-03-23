@@ -1,0 +1,9 @@
+{
+  "type": "postgres",
+  "host": "trumpet.db.elephantsql.com",
+  "port": 5432,
+  "username": "ynnimvfb",
+  "password": "ZIi4P61K5DDWOZtENEgz6Qkp-JCj_1Vu",
+  "database": "ynnimvfb",
+  "entities": ["dist/infra/postgres/entities/index.js"]
+}
