@@ -1,6 +1,6 @@
 import { Controller } from '@/application/controllers'
 import { ServerError } from '@/application/errors'
-import { httpResponse } from '@/application/helpers'
+import { HttpResponse } from '@/application/helpers'
 import { ValidationComposite } from '@/application/validation'
 
 import { mocked } from 'jest-mock'
@@ -8,12 +8,12 @@ import { mocked } from 'jest-mock'
 jest.mock('@/application/validation/composite')
 
 class ControllerStub extends Controller {
-  result: httpResponse = {
+  result: HttpResponse = {
     statusCode: 200,
     data: 'any_data'
   }
 
-  async perform (httpRequest: any): Promise<httpResponse> {
+  async perform (httpRequest: any): Promise<HttpResponse> {
     return this.result
   }
 }
@@ -32,10 +32,10 @@ describe('Controller', () => {
     }))
     mocked(ValidationComposite).mockImplementationOnce(ValidationCompositeSpy)
 
-    const httpResponse = await sut.handle('any_value')
+    const HttpResponse = await sut.handle('any_value')
 
     expect(ValidationComposite).toHaveBeenCalledWith([])
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 400,
       data: error
     })
@@ -45,17 +45,17 @@ describe('Controller', () => {
     const error = new Error('perform_error')
     jest.spyOn(sut, 'perform').mockRejectedValueOnce(error)
 
-    const httpResponse = await sut.handle('any_value')
+    const HttpResponse = await sut.handle('any_value')
 
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 500,
       data: new ServerError(error)
     })
   })
 
   it('should return same result as perform', async () => {
-    const httpResponse = await sut.handle('any_value')
+    const HttpResponse = await sut.handle('any_value')
 
-    expect(httpResponse).toEqual(sut.result)
+    expect(HttpResponse).toEqual(sut.result)
   })
 })

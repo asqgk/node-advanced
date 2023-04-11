@@ -16,27 +16,27 @@ describe('AuthenticationMiddleware', () => {
   })
 
   it('should return 403 if authorization is empty', async () => {
-    const httpResponse = await sut.handle({ authorization: '' })
+    const HttpResponse = await sut.handle({ authorization: '' })
 
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 403,
       data: new ForbiddenError()
     })
   })
 
   it('should return 403 if authorization is null', async () => {
-    const httpResponse = await sut.handle({ authorization: null as any })
+    const HttpResponse = await sut.handle({ authorization: null as any })
 
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 403,
       data: new ForbiddenError()
     })
   })
 
   it('should return 403 if authorization is undefined', async () => {
-    const httpResponse = await sut.handle({ authorization: null as any })
+    const HttpResponse = await sut.handle({ authorization: null as any })
 
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 403,
       data: new ForbiddenError()
     })
@@ -52,18 +52,18 @@ describe('AuthenticationMiddleware', () => {
   it('should return 403 if authorization throws', async () => {
     authorize.mockRejectedValueOnce(new Error('any_error'))
 
-    const httpResponse = await sut.handle({ authorization })
+    const HttpResponse = await sut.handle({ authorization })
 
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 403,
       data: new ForbiddenError()
     })
   })
 
   it('should return 200 with userId on success', async () => {
-    const httpResponse = await sut.handle({ authorization })
+    const HttpResponse = await sut.handle({ authorization })
 
-    expect(httpResponse).toEqual({
+    expect(HttpResponse).toEqual({
       statusCode: 200,
       data: {
         userId: 'any_user_id'
