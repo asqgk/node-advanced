@@ -1,3 +1,4 @@
 export * from './access-token'
 export * from './facebook-account'
-export * from './errors/authentication'
+export * from './user-profile'
+export * from './errors'
