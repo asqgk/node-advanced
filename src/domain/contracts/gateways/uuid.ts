@@ -3,6 +3,6 @@ export interface UUIDGenerator {
 }
 
 export namespace UUIDGenerator {
-  export type Input = string
+  export type Input = { key: string }
   export type Output = string
 }
