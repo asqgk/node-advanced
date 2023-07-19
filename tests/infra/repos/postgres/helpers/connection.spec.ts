@@ -1,5 +1,5 @@
 import { mocked } from 'jest-mock'
-import { Connection, createConnection, getConnection, getConnectionManager } from 'typeorm'
+import { createConnection, getConnection, getConnectionManager } from 'typeorm'
 
 jest.mock('typeorm', () => ({
   Entity: jest.fn(),
@@ -10,7 +10,6 @@ jest.mock('typeorm', () => ({
   getConnectionManager: jest.fn()
 }))
 
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 class PgConnection {
   private static instance?: PgConnection
 
