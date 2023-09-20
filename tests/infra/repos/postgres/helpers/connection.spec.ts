@@ -1,7 +1,7 @@
 import { ConnectionNotFoundError, PgConnection } from '@/infra/repos/postgres/helpers'
 
 import { mocked } from 'jest-mock'
-import { createConnection, getConnection, getConnectionManager, getRepository } from 'typeorm'
+import { createConnection, getConnection, getConnectionManager } from 'typeorm'
 import { PgUser } from '@/infra/repos/postgres/entities'
 
 jest.mock('typeorm', () => ({
